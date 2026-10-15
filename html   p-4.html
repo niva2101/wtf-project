@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase Online</title>
+    <style>
+        .classlist {
+            background-color: black;
+            color: white;
+        }
+        .lightgray {
+            background-color: lightgray;
+            color: black;
+        }
+        header {
+            background-color: #030000;
+            color: white;
+            padding: 20px;
+        }
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        #productdetails {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ShopEase Online</h1>
+        <nav>
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Products</a>
+            <a href="">Contact</a>
+        </nav>
+    </header>
+    <section>
+        <h2>Welcome to ShopEase Online</h2>
+    </section>
+    <h2>Select a Product</h2>
+    <select id="productselect">
+        <option value="">--Select a product--</option>
+        <option value="headphone">Wireless Headphone</option>
+        <option value="watch">Watch</option>
+        <option value="speaker">Speaker</option>
+    </select>
+    <button onclick="showproduct()">Show Product</button>
+    <br><br>
+    <div id="productdetails">
+        <img id="productimage" width="300">
+        <h2 id="productname"></h2>
+        <h3 id="productprice"></h3>
+    </div>
+    <script>
+        function showproduct() {
+            let product = document.getElementById("productselect").value;
+
+            if (product == "headphone") {
+                document.getElementById("productimage").src = "C:\\Users\\DELL\\OneDrive\\Desktop\\wtf practical\\headphone.jfif";
+                document.getElementById("productname").innerHTML = "Wireless Headphone";
+                document.getElementById("productprice").innerHTML = "$50";
+            }
+            else if (product == "watch") {
+                document.getElementById("productimage").src = "C:\\Users\\DELL\\OneDrive\\Desktop\\wtf practical\\watch.jfif";
+                document.getElementById("productname").innerHTML = "Smart Watch";
+                document.getElementById("productprice").innerHTML = "$99.99";
+            }
+            else if (product == "speaker") {
+                document.getElementById("productimage").src = "C:\\Users\\DELL\\OneDrive\\Desktop\\wtf practical\\speaker.jfif";
+                document.getElementById("productname").innerHTML = "Bluetooth Speaker";
+                document.getElementById("productprice").innerHTML = "$79.99";
+            }
+            else {
+                document.getElementById("productimage").src = "";
+                document.getElementById("productname").innerHTML = "Please select a product";
+                document.getElementById("productprice").innerHTML = "";
+            }
+        }
+    </script>
+    <br>
+    <button onclick="changetheme()">Change Theme</button>
+    <script>
+        function changetheme() {
+            document.body.classList.toggle("lightgray");
+        }
+    </script>
+    <h2>My Menu</h2>
+    <ul id="menu">
+        <li>charger</li>
+    </ul>
+    <button onclick="addmenu()">Add to Menu</button>
+    <script>
+        function addmenu() {
+            let item1 = document.createElement("li");
+            item1.innerHTML = "watch";
+            let item2 = document.createElement("li");
+            item2.innerHTML = "phone";
+            let item3 = document.createElement("li");
+            item3.innerHTML = "speaker";
+            document.getElementById("menu").appendChild(item1);
+            document.getElementById("menu").appendChild(item2);
+            document.getElementById("menu").appendChild(item3);
+        }
+    </script>
+</body>
+</html>
